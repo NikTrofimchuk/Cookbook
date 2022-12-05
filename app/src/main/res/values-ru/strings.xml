@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="recipes_fragment">Рецепты</string>
+    <string name="title_home">Главная</string>
+    <string name="title_my_recipes">Мои рецепты</string>
+    <string name="title_bookmarks">Закладки</string>
+    <string name="title_details">Подробности</string>
+    <string name="nav_my_recipes">Мои рецепты</string>
+
+    <string name="bookmarks_tv">Здесь будут храниться ваши сохраненные рецепты</string>
+    <string name="search">Поиск</string>
+    <string name="app_name">Книга Рецептов</string>
+    <string name="meal_type">Тип блюда</string>
+    <string name="main_course">Основные блюда</string>
+    <string name="side_dish">Гарниры</string>
+    <string name="dessert">Десерты</string>
+    <string name="appetizer">Закуски</string>
+    <string name="salad">Салаты</string>
+    <string name="bread">Хлеб</string>
+    <string name="breakfast">Завтраки</string>
+    <string name="soup">Супы</string>
+    <string name="beverage">Напитки</string>
+    <string name="sauce">Соусы</string>
+    <string name="marinade">Маринад</string>
+    <string name="fingerfood">Ручная еда</string>
+    <string name="snack">Перекус</string>
+    <string name="drink">Напитки</string>
+    <string name="gluten_free">Без глютена</string>
+    <string name="ketogenic">Кетогенная</string>
+    <string name="vegetarian">Вегеторианская</string>
+    <string name="vegan">Веганская</string>
+    <string name="apply">Подтвердить</string>
+    <string name="diet_type">Тип диеты</string>
+    <string name="whole30">Всего 30</string>
+    <string name="pescetarian">Пескетарианская</string>
+    <string name="paleo">Палео</string>
+    <string name="primal">Неандертальская</string>
+    <string name="cheap">Дешево</string>
+    <string name="healthy">Полезно</string>
+    <string name="dairy_free">Без молочных продуктов</string>
+    <string name="vegancy">Веган</string>
+    <string name="default_chip">Все</string>
+    <string name="common_chip">Обычная</string>
+    <string name="add_recipes">Добавить новый рецепт</string>
+    <string name="title_add">Новый рецепт</string>
+    <string name="recipe_nameEd">Название блюда</string>
+    <string name="recipe_addImageBtn">Добавить изображение</string>
+    <string name="recipe_timeTV">Время приготовления в минутах</string>
+    <string name="recipe_descriptionEd">Описание рецепта</string>
+    <string name="recipe_instructionEd">Инструкция приготовления</string>
+    <string name="recipe_descriptionTV">Описание:</string>
+    <string name="recipe_instructionTV">Инструкция:</string>
+    <string name="add_ingredient">Добавить новый ингредиент</string>
+    <string name="title_search_ingredients">Поиск ингредиентов</string>
+</resources>

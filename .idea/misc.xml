@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Hao/Desktop/android-kotlin-spoonacular/app/src/main/res/drawable/ic_checkmark.xml" value="0.1" />
+        <entry key="..\:/Users/Hao/Desktop/android-kotlin-spoonacular/app/src/main/res/drawable/ic_clock.xml" value="0.14" />
+        <entry key="..\:/Users/Hao/Desktop/android-kotlin-spoonacular/app/src/main/res/drawable/ic_error_placeholder.xml" value="0.1" />
+        <entry key="..\:/Users/Hao/Desktop/android-kotlin-spoonacular/app/src/main/res/drawable/ic_search.xml" value="0.1335" />
+        <entry key="..\:/Users/Hao/Desktop/android-kotlin-spoonacular/app/src/main/res/font/courgette.xml" value="0.21822916666666667" />
+        <entry key="..\:/Users/Hao/Desktop/android-kotlin-spoonacular/app/src/main/res/layout/activity_details.xml" value="0.12001811594202899" />
+        <entry key="..\:/Users/Hao/Desktop/android-kotlin-spoonacular/app/src/main/res/layout/activity_main.xml" value="0.14722222222222223" />
+        <entry key="..\:/Users/Hao/Desktop/android-kotlin-spoonacular/app/src/main/res/layout/fragment_favorite_recipes.xml" value="0.1" />
+        <entry key="..\:/Users/Hao/Desktop/android-kotlin-spoonacular/app/src/main/res/layout/fragment_ingredients.xml" value="0.12001811594202899" />
+        <entry key="..\:/Users/Hao/Desktop/android-kotlin-spoonacular/app/src/main/res/layout/fragment_instructions.xml" value="0.12001811594202899" />
+        <entry key="..\:/Users/Hao/Desktop/android-kotlin-spoonacular/app/src/main/res/layout/fragment_overview.xml" value="0.12001811594202899" />
+        <entry key="..\:/Users/Hao/Desktop/android-kotlin-spoonacular/app/src/main/res/layout/fragment_recipes.xml" value="0.1" />
+        <entry key="..\:/Users/Hao/Desktop/android-kotlin-spoonacular/app/src/main/res/layout/ingredients_row_layout.xml" value="0.12001811594202899" />
+        <entry key="..\:/Users/Hao/Desktop/android-kotlin-spoonacular/app/src/main/res/layout/placeholder_row_layout.xml" value="0.1" />
+        <entry key="..\:/Users/Hao/Desktop/android-kotlin-spoonacular/app/src/main/res/layout/recipes_bottom_sheet.xml" value="0.11367753623188406" />
+        <entry key="..\:/Users/Hao/Desktop/android-kotlin-spoonacular/app/src/main/res/layout/recipes_row_layout.xml" value="0.25" />
+        <entry key="..\:/Users/Hao/Desktop/android-kotlin-spoonacular/app/src/main/res/menu/bottom_nav_menu.xml" value="0.14722222222222223" />
+        <entry key="..\:/Users/Hao/Desktop/android-kotlin-spoonacular/app/src/main/res/menu/recipes_menu.xml" value="0.21458333333333332" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
