@@ -15,4 +15,9 @@ interface RecipesDao {
     @Query("SELECT * FROM recipes_table ORDER BY id ASC")
     fun readRecipes(): Flow<List<RecipesEntity>>
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertMyRecipes(myrecipesEntity: MyRecipesEntity)
+
+    @Query("SELECT * FROM myrecipes_table ORDER BY id ASC")
+    fun readMyRecipes(): Flow<List<MyRecipesEntity>>
 }

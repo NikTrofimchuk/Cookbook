@@ -1,5 +1,6 @@
 package com.example.cookbook.data
 
+import com.example.cookbook.data.database.MyRecipesEntity
 import com.example.cookbook.data.database.RecipesDao
 import com.example.cookbook.data.database.RecipesEntity
 import kotlinx.coroutines.flow.Flow
@@ -17,4 +18,11 @@ class LocalDataSource @Inject constructor(
         recipesDao.insertRecipes(recipesEntity)
     }
 
+    fun readMyRecipesDatabase(): Flow<List<MyRecipesEntity>> {
+        return recipesDao.readMyRecipes()
+    }
+
+    suspend fun insertMyRecipes(myRecipesEntity: MyRecipesEntity) {
+        recipesDao.insertMyRecipes(myRecipesEntity)
+    }
 }

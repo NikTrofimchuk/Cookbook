@@ -17,12 +17,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ui.SearchIngredientsActivity"
-            android:label="@string/title_search_ingredients" />
-        <activity
             android:name=".ui.AddRecipeActivity"
-            android:label="Details"
-            android:theme="@style/DetailsActivityStyle" />
+            android:label="@string/add_recipes" />
         <activity
             android:name=".ui.DetailsActivity"
             android:label="Details"
@@ -30,7 +26,6 @@
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

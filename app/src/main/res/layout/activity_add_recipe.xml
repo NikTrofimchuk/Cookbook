@@ -7,39 +7,137 @@
     android:layout_height="match_parent"
     tools:context=".ui.AddRecipeActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBaraddRecipe"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/recipe_timeTV"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/title_ed"
+        app:layout_constraintStart_toStartOf="@+id/title_ed"
+        app:layout_constraintTop_toBottomOf="@+id/title_ed" />
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarAddRecipe"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:titleTextColor="@color/white"
-            app:title="@string/title_add"/>
+    <View
+        android:id="@+id/view7"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView2"
+        app:layout_constraintStart_toStartOf="@+id/scrollView2"
+        app:layout_constraintTop_toBottomOf="@+id/addImageBtn" />
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayoutAddRecipe"
-            style="@style/CustomTabLayoutStyle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:tabTextAppearance="@style/CustomTabTextStyle" />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPagerAddRecipe"
-        android:layout_width="match_parent"
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBaraddRecipe" />
+        app:layout_constraintTop_toTopOf="@+id/view7">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/descriptiontv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/recipe_descriptionTV"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/description_ed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/black"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="@string/recipe_descriptionEd"
+                android:inputType="textMultiLine" />
+
+            <TextView
+                android:id="@+id/Instructiontv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/recipe_instructionTV"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/instruction_ed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/black"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="@string/recipe_instructionEd"
+                android:inputType="textMultiLine" />
+        </LinearLayout>
+    </ScrollView>
+
+    <EditText
+        android:id="@+id/title_ed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/black"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/recipe_nameEd"
+        android:inputType="textMultiLine"
+        android:maxLines="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/recipeImage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/addImageBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/recipe_addImageBtn"
+        app:layout_constraintEnd_toEndOf="@+id/recipeImage"
+        app:layout_constraintStart_toStartOf="@+id/recipeImage"
+        app:layout_constraintTop_toBottomOf="@+id/recipeImage" />
+
+    <EditText
+        android:id="@+id/time_ed"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/black"
+        android:ems="10"
+        android:gravity="center|center_vertical"
+        android:inputType="number"
+        android:maxLength="3"
+        android:textColor="@color/yellow"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <ImageView
+        android:id="@+id/recipeImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_error_placeholder" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
