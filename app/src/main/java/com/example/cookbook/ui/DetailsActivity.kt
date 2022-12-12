@@ -2,7 +2,10 @@ package com.example.cookbook.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.navArgs
@@ -32,9 +35,9 @@ class DetailsActivity : AppCompatActivity() {
         fragments.add(InstructionsFragment())
 
         val titles = ArrayList<String>()
-        titles.add("Обзор")
-        titles.add("Ингредиенты")
-        titles.add("Инструкция")
+        titles.add(getString(R.string.title_overview))
+        titles.add(getString(R.string.title_instruction))
+        titles.add(getString(R.string.title_ingredients))
 
         val resultBundle = Bundle()
         resultBundle.putParcelable(RECIPE_RESULT_KEY, args.result)
@@ -50,9 +53,17 @@ class DetailsActivity : AppCompatActivity() {
         tabLayout.setupWithViewPager(viewPager)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.bookmarks_menu, menu)
+        return true
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) {
-            finish()
+        when (item.itemId) {
+            android.R.id.home -> finish()
+            R.id.menu_bookmarks -> {
+                Toast.makeText(getApplicationContext(),R.string.bookmarks, Toast.LENGTH_SHORT).show()
+            }
         }
         return super.onOptionsItemSelected(item)
     }

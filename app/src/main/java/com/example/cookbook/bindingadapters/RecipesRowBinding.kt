@@ -27,6 +27,7 @@ class RecipesRowBinding {
                 try {
                     val action =
                         RecipesFragmentDirections.actionRecipesFragmentToDetailsActivity(result)
+                    Log.d("onRecipeClickListener", result.toString())
                     recipeRowLayout.findNavController().navigate(action)
                 } catch (e: Exception) {
                     Log.d("onRecipeClickListener", e.toString())

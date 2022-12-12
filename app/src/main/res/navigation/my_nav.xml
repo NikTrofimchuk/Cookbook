@@ -53,6 +53,9 @@
     <action
         android:id="@+id/action_myRecipesFragment_to_addRecipeActivity"
         app:destination="@id/addRecipeActivity" />
+        <action
+            android:id="@+id/action_myRecipesFragment_to_myRecipesDetailsActivity"
+            app:destination="@id/myRecipeDetailsActivity" />
     </fragment>
 
     <fragment
@@ -60,5 +63,14 @@
         android:name="com.example.cookbook.ui.fragments.bookmarks.BookmarksFragment"
         android:label="@string/title_bookmarks"
         tools:layout="@layout/fragment_bookmarks" />
+    <activity
+        android:id="@+id/myRecipeDetailsActivity"
+        android:name="com.example.cookbook.ui.MyRecipeDetailsActivity"
+        android:label="activity_my_recipe_details"
+        tools:layout="@layout/activity_my_recipe_details" >
+        <argument
+            android:name="recipe"
+            app:argType="com.example.cookbook.data.database.MyRecipesEntity" />
+    </activity>
 
 </navigation>

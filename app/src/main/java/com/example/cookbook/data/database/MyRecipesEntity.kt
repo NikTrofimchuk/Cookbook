@@ -1,16 +1,15 @@
 package com.example.cookbook.data.database
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.cookbook.util.Constants
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @Entity(tableName = Constants.MYRECIPES_TABLE)
 class MyRecipesEntity(
-    @PrimaryKey
-    @ColumnInfo(name = "id")
-    var id: Int = 0,
-
     @ColumnInfo(name = "title")
     var title: String,
 
@@ -25,7 +24,8 @@ class MyRecipesEntity(
 
     @ColumnInfo(name = "image")
     var image: String,
-)
+): Parcelable
 {
-
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0
 }

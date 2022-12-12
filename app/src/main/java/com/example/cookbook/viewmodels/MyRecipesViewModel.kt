@@ -1,6 +1,7 @@
 package com.example.cookbook.viewmodels
 
 import android.app.Application
+import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -23,4 +24,16 @@ class MyRecipesViewModel @ViewModelInject constructor(
             repository.local.insertMyRecipes(myRecipesEntity)
         }
 
+    private fun deleteMyRecipes(title: String) =
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.deleteMyRecipes(title)
+        }
+
+    fun writeInMyRecipes(myRecipe: MyRecipesEntity){
+        insertMyRecipes(myRecipe)
+    }
+
+    fun deleteInMyRecipes(title: String){
+        deleteMyRecipes(title)
+    }
 }

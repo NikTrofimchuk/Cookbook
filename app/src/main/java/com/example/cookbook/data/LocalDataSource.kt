@@ -4,6 +4,7 @@ import com.example.cookbook.data.database.MyRecipesEntity
 import com.example.cookbook.data.database.RecipesDao
 import com.example.cookbook.data.database.RecipesEntity
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.withTimeout
 import javax.inject.Inject
 
 class LocalDataSource @Inject constructor(
@@ -24,5 +25,9 @@ class LocalDataSource @Inject constructor(
 
     suspend fun insertMyRecipes(myRecipesEntity: MyRecipesEntity) {
         recipesDao.insertMyRecipes(myRecipesEntity)
+    }
+
+    suspend fun deleteMyRecipes(title: String){
+        recipesDao.deleteMyRecipes(title)
     }
 }

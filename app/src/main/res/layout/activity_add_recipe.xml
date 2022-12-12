@@ -122,7 +122,7 @@
         android:layout_marginTop="16dp"
         android:backgroundTint="@color/black"
         android:ems="10"
-        android:gravity="center|center_vertical"
+        android:gravity="start"
         android:inputType="number"
         android:maxLength="3"
         android:textColor="@color/yellow"
@@ -139,5 +139,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_error_placeholder" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/time_ed"
+        app:layout_constraintEnd_toStartOf="@+id/time_ed"
+        app:layout_constraintTop_toTopOf="@+id/time_ed"
+        app:layout_constraintVertical_bias="0.476"
+        app:srcCompat="@drawable/ic_clock" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

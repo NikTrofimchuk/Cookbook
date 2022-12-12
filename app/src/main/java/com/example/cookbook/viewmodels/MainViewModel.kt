@@ -8,7 +8,6 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.example.cookbook.data.Repository
 import com.example.cookbook.data.database.RecipesEntity
-import com.example.cookbook.models.ExtendedIngredient
 import com.example.cookbook.models.FoodRecipe
 import com.example.cookbook.util.NetworkResult
 import kotlinx.coroutines.Dispatchers
