@@ -8,9 +8,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.navigation.findNavController
-import com.example.cookbook.R
 import com.example.cookbook.data.database.MyRecipesEntity
-import com.example.cookbook.ui.fragments.myrecipes.MyRecipesFragmentDirections
+import com.example.cookbook.ui.fragments.MyRecipesFragmentDirections
 import kotlinx.android.synthetic.main.activity_add_recipe.*
 import org.jsoup.Jsoup
 import java.lang.Exception

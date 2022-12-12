@@ -1,4 +1,4 @@
-package com.example.cookbook.ui.fragments.recipes.bottomsheet
+package com.example.cookbook.ui.fragments
 
 import android.os.Bundle
 import android.util.Log

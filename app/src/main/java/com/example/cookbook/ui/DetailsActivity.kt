@@ -2,18 +2,15 @@ package com.example.cookbook.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.navArgs
 import com.example.cookbook.R
 import com.example.cookbook.adapters.PagerAdapter
-import com.example.cookbook.ui.fragments.ingredients.IngredientsFragment
-import com.example.cookbook.ui.fragments.instructions.InstructionsFragment
-import com.example.cookbook.ui.fragments.overview.OverviewFragment
+import com.example.cookbook.ui.fragments.IngredientsFragment
+import com.example.cookbook.ui.fragments.InstructionsFragment
+import com.example.cookbook.ui.fragments.OverviewFragment
 import com.example.cookbook.util.Constants.Companion.RECIPE_RESULT_KEY
 import kotlinx.android.synthetic.main.activity_details.*
 
@@ -36,8 +33,8 @@ class DetailsActivity : AppCompatActivity() {
 
         val titles = ArrayList<String>()
         titles.add(getString(R.string.title_overview))
-        titles.add(getString(R.string.title_instruction))
         titles.add(getString(R.string.title_ingredients))
+        titles.add(getString(R.string.title_instruction))
 
         val resultBundle = Bundle()
         resultBundle.putParcelable(RECIPE_RESULT_KEY, args.result)
@@ -52,18 +49,9 @@ class DetailsActivity : AppCompatActivity() {
         viewPager.adapter = adapter
         tabLayout.setupWithViewPager(viewPager)
     }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.bookmarks_menu, menu)
-        return true
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> finish()
-            R.id.menu_bookmarks -> {
-                Toast.makeText(getApplicationContext(),R.string.bookmarks, Toast.LENGTH_SHORT).show()
-            }
         }
         return super.onOptionsItemSelected(item)
     }

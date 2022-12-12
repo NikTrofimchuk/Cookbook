@@ -11,7 +11,7 @@ import androidx.navigation.findNavController
 import coil.load
 import com.example.cookbook.R
 import com.example.cookbook.models.Result
-import com.example.cookbook.ui.fragments.recipes.RecipesFragmentDirections
+import com.example.cookbook.ui.fragments.RecipesFragmentDirections
 import org.jsoup.Jsoup
 import java.lang.Exception
 

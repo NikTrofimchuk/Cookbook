@@ -1,4 +1,4 @@
-package com.example.cookbook.ui.fragments.instructions
+package com.example.cookbook.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

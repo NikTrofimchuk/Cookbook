@@ -1,4 +1,4 @@
-package com.example.cookbook.ui.fragments.myrecipes
+package com.example.cookbook.ui.fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -34,7 +34,6 @@ class MyRecipesFragment : Fragment() {
     ): View? {
         binding = FragmentMyRecipesBinding.inflate(inflater, container, false)
         setupRecyclerView()
-        loadDataFromCache()
         return binding.root
     }
 
@@ -46,6 +45,11 @@ class MyRecipesFragment : Fragment() {
             Log.v("myrecipe","click")
             findNavController().navigate(R.id.action_myRecipesFragment_to_addRecipeActivity)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadDataFromCache()
     }
 
     private fun setupRecyclerView() {

@@ -1,8 +1,7 @@
-package com.example.cookbook.ui.fragments.overview
+package com.example.cookbook.ui.fragments
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.core.content.ContextCompat
 import coil.load
@@ -64,16 +63,5 @@ class OverviewFragment : Fragment() {
         }
 
         return view
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.bookmarks_menu,menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.menu_bookmarks)
-            Toast.makeText(context, "Added in bookmarks", Toast.LENGTH_SHORT).show()
-        return true
     }
 }
