@@ -11,4 +11,9 @@
         android:icon="@drawable/ic_menu_book"
         android:title="@string/title_my_recipes" />
 
+    <item
+        android:id="@+id/navigation_bookmarks"
+        android:icon="@drawable/ic_bookmarks"
+        android:title="@string/title_bookmarks" />
+
 </menu>

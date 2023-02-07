@@ -68,4 +68,10 @@
             app:argType="com.example.cookbook.data.database.MyRecipesEntity" />
     </activity>
 
+    <fragment
+        android:id="@+id/navigation_bookmarks"
+        android:name="com.example.cookbook.ui.fragments.BookmarksFragment"
+        android:label="fragment_bookmarks"
+        tools:layout="@layout/fragment_bookmarks" />
+
 </navigation>
