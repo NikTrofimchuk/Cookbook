@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
+import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -75,7 +77,7 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
 
         binding.recipesFab.setOnClickListener {
             if (recipesViewModel.networkStatus) {
-                findNavController().navigate(R.id.action_recipesFragment_to_recipesBottomSheet)
+                findNavController().safeNavigate(RecipesFragmentDirections.actionRecipesFragmentToRecipesBottomSheet())
             } else {
                 recipesViewModel.showNetworkStatus()
             }
@@ -84,6 +86,11 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
         return binding.root
     }
 
+    fun NavController.safeNavigate(direction: NavDirections) {
+        currentDestination?.getAction(direction.actionId)?.run {
+            navigate(direction)
+        }
+    }
     private fun setupRecyclerView() {
         binding.recyclerview.adapter = mAdapter
         binding.recyclerview.layoutManager = LinearLayoutManager(requireContext())
