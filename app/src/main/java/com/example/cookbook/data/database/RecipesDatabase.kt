@@ -5,11 +5,11 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
 @Database(
-    entities = [RecipesEntity::class, MyRecipesEntity::class],
-    version = 2,
+    entities = [RecipesEntity::class, MyRecipesEntity::class, BookmarkEntity::class],
+    version = 1,
     exportSchema = false
 )
-@TypeConverters(RecipesTypeConverter::class)
+@TypeConverters(RecipesTypeConverter::class, BookmarksTypeConverter::class)
 abstract class RecipesDatabase: RoomDatabase() {
 
     abstract fun recipesDao(): RecipesDao
