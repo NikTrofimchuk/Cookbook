@@ -1,5 +1,6 @@
 package com.example.cookbook.data
 
+import com.example.cookbook.data.database.BookmarkEntity
 import com.example.cookbook.data.database.MyRecipesEntity
 import com.example.cookbook.data.database.RecipesDao
 import com.example.cookbook.data.database.RecipesEntity
@@ -28,5 +29,17 @@ class LocalDataSource @Inject constructor(
 
     suspend fun deleteMyRecipes(title: String){
         recipesDao.deleteMyRecipes(title)
+    }
+
+    fun readBookmarksTable(): Flow<List<BookmarkEntity>> {
+        return recipesDao.readBookmarks()
+    }
+
+    suspend fun insertBookmarks(bookmarkEntity: BookmarkEntity) {
+        recipesDao.insertBookmarks(bookmarkEntity)
+    }
+
+    suspend fun deleteBookmark(id: Int){
+        recipesDao.deleteBookmark(id)
     }
 }

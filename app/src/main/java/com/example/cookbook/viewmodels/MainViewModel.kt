@@ -7,6 +7,7 @@ import android.net.NetworkCapabilities
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.example.cookbook.data.Repository
+import com.example.cookbook.data.database.BookmarkEntity
 import com.example.cookbook.data.database.RecipesEntity
 import com.example.cookbook.models.FoodRecipe
 import com.example.cookbook.util.NetworkResult
@@ -24,10 +25,16 @@ class MainViewModel @ViewModelInject constructor(
     /** ROOM DATABASE */
 
     val readRecipes: LiveData<List<RecipesEntity>> = repository.local.readDatabase().asLiveData()
+    val readBookmarks: LiveData<List<BookmarkEntity>> = repository.local.readBookmarksTable().asLiveData()
 
     private fun insertRecipes(recipesEntity: RecipesEntity) =
         viewModelScope.launch(Dispatchers.IO) {
             repository.local.insertRecipes(recipesEntity)
+        }
+
+    private fun insertBookmarks(bookmarkEntity: BookmarkEntity) =
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.insertBookmarks(bookmarkEntity)
         }
 
     /** RETROFIT */
@@ -78,6 +85,10 @@ class MainViewModel @ViewModelInject constructor(
     private fun offlineCacheRecipes(foodRecipe: FoodRecipe) {
         val recipesEntity = RecipesEntity(foodRecipe)
         insertRecipes(recipesEntity)
+    }
+
+    fun writeInBookmarks(bookmarkEntity: BookmarkEntity){
+        insertBookmarks(bookmarkEntity)
     }
 
     private fun handleFoodRecipesResponse(response: Response<FoodRecipe>): NetworkResult<FoodRecipe>? {

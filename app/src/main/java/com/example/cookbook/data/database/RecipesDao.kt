@@ -24,4 +24,13 @@ interface RecipesDao {
 
     @Query("DELETE FROM myrecipes_table WHERE title = :title")
     suspend fun deleteMyRecipes(title: String)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertBookmarks(bookmarkEntity: BookmarkEntity)
+
+    @Query("SELECT * FROM bookmarks_table ORDER BY id ASC")
+    fun readBookmarks(): Flow<List<BookmarkEntity>>
+
+    @Query("DELETE FROM bookmarks_table WHERE id = :id")
+    suspend fun deleteBookmark(id: Int)
 }

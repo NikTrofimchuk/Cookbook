@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cookbook.data.database.BookmarkEntity
+import com.example.cookbook.data.database.MyRecipesEntity
 import com.example.cookbook.databinding.RecipesRowLayoutBinding
 import com.example.cookbook.models.FoodRecipe
 import com.example.cookbook.models.Result
@@ -48,6 +50,13 @@ class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.MyViewHolder>() {
         val recipesDiffUtil = RecipesDiffUtil(recipes, newData.results)
         val diffUtilResult = DiffUtil.calculateDiff(recipesDiffUtil)
         recipes = newData.results
+        diffUtilResult.dispatchUpdatesTo(this)
+    }
+
+    fun setDataBookmarks(newData: List<BookmarkEntity>){
+        val recipesDiffUtil = RecipesDiffUtil(recipes, newData)
+        val diffUtilResult = DiffUtil.calculateDiff(recipesDiffUtil)
+        recipes = newData.map{it.result}
         diffUtilResult.dispatchUpdatesTo(this)
     }
 }

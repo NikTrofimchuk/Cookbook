@@ -7,18 +7,25 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.navArgs
 import com.example.cookbook.R
 import com.example.cookbook.adapters.PagerAdapter
+import com.example.cookbook.data.database.BookmarkEntity
 import com.example.cookbook.ui.fragments.IngredientsFragment
 import com.example.cookbook.ui.fragments.InstructionsFragment
 import com.example.cookbook.ui.fragments.OverviewFragment
 import com.example.cookbook.util.Constants.Companion.RECIPE_RESULT_KEY
+import com.example.cookbook.viewmodels.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_details.*
 
+@AndroidEntryPoint
 class DetailsActivity : AppCompatActivity() {
 
     private val args by navArgs<DetailsActivityArgs>()
+
+    private lateinit var mainViewModel: MainViewModel
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.addinbookmarks_menu, menu)
@@ -32,6 +39,7 @@ class DetailsActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.white))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 //
         val fragments = ArrayList<Fragment>()
         fragments.add(OverviewFragment())
@@ -61,6 +69,8 @@ class DetailsActivity : AppCompatActivity() {
             android.R.id.home -> finish()
             R.id.menu_addinbookmarks -> {
                 Toast.makeText(applicationContext,R.string.bookmarks, Toast.LENGTH_SHORT).show()
+                var bookmarkEntity = BookmarkEntity(args.result)
+                mainViewModel.writeInBookmarks(bookmarkEntity)
             }
         }
         return super.onOptionsItemSelected(item)
