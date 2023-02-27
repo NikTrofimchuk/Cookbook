@@ -63,6 +63,18 @@
         app:layout_constraintBottom_toBottomOf="@+id/time_textView"
         app:layout_constraintEnd_toStartOf="@+id/time_textView" />
 
+    <TextView
+        android:id="@+id/calories_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:text="100"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/likes_textView"
+        app:layout_constraintEnd_toStartOf="@+id/likes_textView" />
+
     <ImageView
         android:id="@+id/likes_imageView"
         android:layout_width="wrap_content"
@@ -71,6 +83,16 @@
         app:layout_constraintBottom_toTopOf="@+id/likes_textView"
         app:layout_constraintEnd_toEndOf="@+id/likes_textView"
         app:layout_constraintStart_toStartOf="@+id/likes_textView"
+        app:tint="@color/white" />
+
+    <ImageView
+        android:id="@+id/calories_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_calories"
+        app:layout_constraintBottom_toTopOf="@+id/calories_textview"
+        app:layout_constraintEnd_toEndOf="@+id/calories_textview"
+        app:layout_constraintStart_toStartOf="@+id/calories_textview"
         app:tint="@color/white" />
 
     <TextView

@@ -39,6 +39,7 @@ class OverviewFragment : Fragment() {
             Log.i(TAG, calories)
         }
 
+
         if(myBundle?.vegetarian == true){
             view.vegetarian_imageView.setColorFilter(ContextCompat.getColor(requireContext(), R.color.green))
             view.vegetarian_textView.setTextColor(ContextCompat.getColor(requireContext(), R.color.green))
