@@ -1,9 +1,12 @@
 package com.example.cookbook.ui.fragments
 
 import android.os.Bundle
-import android.view.*
-import androidx.fragment.app.Fragment
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import coil.load
 import com.example.cookbook.R
 import com.example.cookbook.models.Result
@@ -11,8 +14,9 @@ import com.example.cookbook.util.Constants.Companion.RECIPE_RESULT_KEY
 import kotlinx.android.synthetic.main.fragment_overview.view.*
 import org.jsoup.Jsoup
 
-class OverviewFragment : Fragment() {
 
+class OverviewFragment : Fragment() {
+    private val TAG = "MyApp"
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,6 +34,9 @@ class OverviewFragment : Fragment() {
         myBundle?.summary.let {
             val summary = Jsoup.parse(it).text()
             view.summary_textView.text = summary
+            val calSummary = summary.substringBefore("calories").substringBeforeLast(" ")
+            val calories: String = calSummary.substring(calSummary.lastIndexOf(" ") + 1)
+            Log.i(TAG, calories)
         }
 
         if(myBundle?.vegetarian == true){
@@ -61,6 +68,7 @@ class OverviewFragment : Fragment() {
             view.cheap_imageView.setColorFilter(ContextCompat.getColor(requireContext(), R.color.green))
             view.cheap_textView.setTextColor(ContextCompat.getColor(requireContext(), R.color.green))
         }
+
 
         return view
     }
