@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cookbook.viewmodels.MainViewModel
 import com.example.cookbook.R
 import com.example.cookbook.adapters.RecipesAdapter
+import com.example.cookbook.data.database.BookmarkEntity
 import com.example.cookbook.databinding.FragmentRecipesBinding
 import com.example.cookbook.util.NetworkListener
 import com.example.cookbook.util.NetworkResult
@@ -64,16 +65,7 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
             recipesViewModel.backOnline = it
         }
 
-        lifecycleScope.launch {
-            networkListener = NetworkListener()
-            networkListener.checkNetworkAvailability(requireContext())
-                .collect { status ->
-                    Log.d("NetworkListener", status.toString())
-                    recipesViewModel.networkStatus = status
-                    recipesViewModel.showNetworkStatus()
-                    readDatabase()
-                }
-        }
+        loadData()
 
         binding.recipesFab.setOnClickListener {
             if (recipesViewModel.networkStatus) {
@@ -117,13 +109,51 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
         return true
     }
 
+    override fun onResume() {
+        loadData()
+        super.onResume()
+    }
+
+    private fun loadData(){
+        lifecycleScope.launch {
+            networkListener = NetworkListener()
+            networkListener.checkNetworkAvailability(requireContext())
+                .collect { status ->
+                    Log.d("NetworkListener", status.toString())
+                    recipesViewModel.networkStatus = status
+                    recipesViewModel.showNetworkStatus()
+                    readDatabase()
+                }
+        }
+    }
     private fun readDatabase() {
         lifecycleScope.launch {
             mainViewModel.readRecipes.observeOnce(viewLifecycleOwner) { database ->
                 if (database.isNotEmpty() && !args.backFromBottomSheet) {
                     Log.d("RecipesFragment", "readDatabase called!")
-                    mAdapter.setData(database[0].foodRecipe)
-                    hideShimmerEffect()
+                    var bookmarks : List<BookmarkEntity>
+                        mainViewModel.readBookmarks.observe(viewLifecycleOwner) { database1 ->
+                            if (database1.isNotEmpty()) {
+                                bookmarks = database1.toList()
+                                val foodRecipe = database[0].foodRecipe
+                                foodRecipe.results.forEach{ foodrecipe ->
+                                    bookmarks.forEach{bookmarks ->
+                                        if(foodrecipe.id == bookmarks.result.id)
+                                        {
+                                            foodrecipe.IdBookmark = bookmarks.id
+                                            Log.d("RecipesFragment", foodrecipe.IdBookmark.toString())
+                                            foodrecipe.inBookmark = true
+                                        }
+                                    }
+                                }
+                                mAdapter.setData(foodRecipe)
+                                hideShimmerEffect()
+                            }
+                            else{
+                                mAdapter.setData(database[0].foodRecipe)
+                                hideShimmerEffect()
+                            }
+                        }
                 } else {
                     requestApiData()
                 }
@@ -184,7 +214,7 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
 
     private fun loadDataFromCache() {
         lifecycleScope.launch {
-            Log.v("myrecipe",getLifecycle().getCurrentState().toString())
+            Log.v("myrecipe", lifecycle.currentState.toString())
             mainViewModel.readRecipes.observe(viewLifecycleOwner) { database ->
                 if (database.isNotEmpty()) {
                     mAdapter.setData(database[0].foodRecipe)

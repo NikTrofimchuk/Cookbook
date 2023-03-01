@@ -35,11 +35,11 @@ class LocalDataSource @Inject constructor(
         return recipesDao.readBookmarks()
     }
 
-    suspend fun insertBookmarks(bookmarkEntity: BookmarkEntity) {
-        recipesDao.insertBookmarks(bookmarkEntity)
+    suspend fun insertBookmarks(bookmarkEntity: BookmarkEntity):Long {
+        return recipesDao.insertBookmarks(bookmarkEntity)
     }
 
-    suspend fun deleteBookmark(id: Int){
+    suspend fun deleteFromBookmark(id: Int){
         recipesDao.deleteBookmark(id)
     }
 }

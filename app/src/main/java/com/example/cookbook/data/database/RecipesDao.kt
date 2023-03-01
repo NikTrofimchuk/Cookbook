@@ -26,7 +26,7 @@ interface RecipesDao {
     suspend fun deleteMyRecipes(title: String)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertBookmarks(bookmarkEntity: BookmarkEntity)
+    suspend fun insertBookmarks(bookmarkEntity: BookmarkEntity):Long
 
     @Query("SELECT * FROM bookmarks_table ORDER BY id ASC")
     fun readBookmarks(): Flow<List<BookmarkEntity>>

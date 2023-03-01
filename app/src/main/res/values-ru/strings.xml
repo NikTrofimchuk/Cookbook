@@ -54,7 +54,6 @@
     <string name="title_search_ingredients">Поиск ингредиентов</string>
     <string name="add">Добавить</string>
     <string name="error">Для добавления заполните все поля</string>
-    <string name="bookmarks">Добавлено в закладки</string>
     <string name="photo">Выберите фото</string>
     <string name="instruction_tv">Способ приготовления:</string>
     <string name="description_tv">Описание:</string>
@@ -62,4 +61,7 @@
     <string name="title_overview">Обзор</string>
     <string name="title_ingredients">Ингредиенты</string>
     <string name="title_instruction">Инструкция</string>
+    <string name="bookmarks_TV">В закладках</string>
+    <string name="bookmarks_added">Добавлено в закладки</string>
+    <string name="bookmarks_deleted">Убрано из закладок</string>
 </resources>

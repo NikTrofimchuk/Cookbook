@@ -5,7 +5,7 @@
     <item
         android:id="@+id/menu_addinbookmarks"
         android:icon="@drawable/ic_baseline_bookmark_border_24"
-        android:title="@string/bookmarks"
+        android:title="@string/bookmarks_added"
         app:showAsAction="ifRoom"
         tools:targetApi="o" />
 </menu>

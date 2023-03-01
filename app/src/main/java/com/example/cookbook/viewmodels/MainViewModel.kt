@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.example.cookbook.data.Repository
@@ -11,7 +12,10 @@ import com.example.cookbook.data.database.BookmarkEntity
 import com.example.cookbook.data.database.RecipesEntity
 import com.example.cookbook.models.FoodRecipe
 import com.example.cookbook.util.NetworkResult
+import com.example.cookbook.util.observeOnce
+import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import java.lang.Exception
@@ -32,9 +36,17 @@ class MainViewModel @ViewModelInject constructor(
             repository.local.insertRecipes(recipesEntity)
         }
 
-    private fun insertBookmarks(bookmarkEntity: BookmarkEntity) =
-        viewModelScope.launch(Dispatchers.IO) {
+    private suspend fun insertBookmarks(bookmarkEntity: BookmarkEntity): Long
+    {
+        val message: Deferred<Long> = viewModelScope.async(Dispatchers.IO) {
             repository.local.insertBookmarks(bookmarkEntity)
+        }
+        return message.await()
+    }
+
+    private fun deleteFromBookmark(id: Int) =
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.deleteFromBookmark(id)
         }
 
     /** RETROFIT */
@@ -87,8 +99,12 @@ class MainViewModel @ViewModelInject constructor(
         insertRecipes(recipesEntity)
     }
 
-    fun writeInBookmarks(bookmarkEntity: BookmarkEntity){
-        insertBookmarks(bookmarkEntity)
+    suspend fun writeInBookmarks(bookmarkEntity: BookmarkEntity): Long {
+        return insertBookmarks(bookmarkEntity)
+    }
+
+    fun deleteBookmark(id: Int){
+        deleteFromBookmark(id)
     }
 
     private fun handleFoodRecipesResponse(response: Response<FoodRecipe>): NetworkResult<FoodRecipe>? {
@@ -111,6 +127,7 @@ class MainViewModel @ViewModelInject constructor(
             }
         }
     }
+
 
     private fun hasInternetConnection(): Boolean {
         val connectivityManager = getApplication<Application>().getSystemService(

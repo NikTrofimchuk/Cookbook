@@ -7,10 +7,12 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import coil.load
 import com.example.cookbook.R
 import com.example.cookbook.models.Result
+import com.example.cookbook.ui.fragments.BookmarksFragmentDirections
 import com.example.cookbook.ui.fragments.RecipesFragmentDirections
 import org.jsoup.Jsoup
 import java.lang.Exception
@@ -25,9 +27,14 @@ class RecipesRowBinding {
             Log.d("onRecipeClickListener", "CALLED")
             recipeRowLayout.setOnClickListener {
                 try {
+                    val navId:Int? = recipeRowLayout.findNavController().currentDestination?.id
+                    if(navId == 2131362142){
+                        recipeRowLayout.findNavController().navigate(BookmarksFragmentDirections.actionNavigationBookmarksToDetailsActivity(result))
+                    }
                     val action =
                         RecipesFragmentDirections.actionRecipesFragmentToDetailsActivity(result)
                     Log.d("onRecipeClickListener", result.toString())
+                    Log.d("String", navId.toString())
                     recipeRowLayout.findNavController().navigate(action)
                 } catch (e: Exception) {
                     Log.d("onRecipeClickListener", e.toString())
@@ -48,6 +55,13 @@ class RecipesRowBinding {
         @JvmStatic
         fun setNumberOfLikes(textView: TextView, likes: Int) {
             textView.text = likes.toString()
+        }
+
+        @BindingAdapter("checkBookmarks")
+        @JvmStatic
+        fun checkBookmarks(textView: TextView, inBookmark: Boolean) {
+            if (inBookmark)
+            textView.visibility = View.VISIBLE
         }
 
         @BindingAdapter("setNumberOfMinutes")

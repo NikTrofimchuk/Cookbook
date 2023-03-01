@@ -45,9 +45,11 @@
     <string name="common_chip">Common</string>
 
     <string name="search">Search</string>
+    <string name="bookmarks_TV">In Bookmarks</string>
     <string name="add">Add</string>
     <string name="error">Fill in all the fields</string>
-    <string name="bookmarks">Added in bookmarks</string>
+    <string name="bookmarks_added">Added in bookmarks</string>
+    <string name="bookmarks_deleted">Deleted from bookmarks</string>
     <string name="delete">Recipe has been deleted</string>
     <string name="cheap">Cheap</string>
     <string name="healthy">Healthy</string>
