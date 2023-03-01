@@ -28,12 +28,11 @@ class RecipesRowBinding {
             recipeRowLayout.setOnClickListener {
                 try {
                     val navId:Int? = recipeRowLayout.findNavController().currentDestination?.id
-                    if(navId == 2131362142){
+                    if(navId == R.id.navigation_bookmarks){
                         recipeRowLayout.findNavController().navigate(BookmarksFragmentDirections.actionNavigationBookmarksToDetailsActivity(result))
                     }
                     val action =
                         RecipesFragmentDirections.actionRecipesFragmentToDetailsActivity(result)
-                    Log.d("onRecipeClickListener", result.toString())
                     Log.d("String", navId.toString())
                     recipeRowLayout.findNavController().navigate(action)
                 } catch (e: Exception) {

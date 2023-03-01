@@ -72,8 +72,6 @@ class DetailsActivity : AppCompatActivity() {
             titles,
             supportFragmentManager
         )
-
-        Log.d("Details", args.result.toString())
         viewPager.adapter = adapter
         tabLayout.setupWithViewPager(viewPager)
     }

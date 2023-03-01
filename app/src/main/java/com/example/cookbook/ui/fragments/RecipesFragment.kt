@@ -65,8 +65,6 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
             recipesViewModel.backOnline = it
         }
 
-        loadData()
-
         binding.recipesFab.setOnClickListener {
             if (recipesViewModel.networkStatus) {
                 findNavController().safeNavigate(RecipesFragmentDirections.actionRecipesFragmentToRecipesBottomSheet())
@@ -78,7 +76,7 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
         return binding.root
     }
 
-    fun NavController.safeNavigate(direction: NavDirections) {
+    private fun NavController.safeNavigate(direction: NavDirections) {
         currentDestination?.getAction(direction.actionId)?.run {
             navigate(direction)
         }
@@ -130,13 +128,16 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
         lifecycleScope.launch {
             mainViewModel.readRecipes.observeOnce(viewLifecycleOwner) { database ->
                 if (database.isNotEmpty() && !args.backFromBottomSheet) {
-                    Log.d("RecipesFragment", "readDatabase called!")
+                    Log.d("RecipesFragment", "Recipes Database called!")
                     var bookmarks : List<BookmarkEntity>
                         mainViewModel.readBookmarks.observe(viewLifecycleOwner) { database1 ->
                             if (database1.isNotEmpty()) {
+                                Log.d("RecipesFragment", "Bookmarks Database called!")
                                 bookmarks = database1.toList()
                                 val foodRecipe = database[0].foodRecipe
                                 foodRecipe.results.forEach{ foodrecipe ->
+                                    foodrecipe.IdBookmark = 0
+                                    foodrecipe.inBookmark = false
                                     bookmarks.forEach{bookmarks ->
                                         if(foodrecipe.id == bookmarks.result.id)
                                         {
@@ -147,10 +148,16 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
                                     }
                                 }
                                 mAdapter.setData(foodRecipe)
+                                Log.d("RecipesFragment", "Adapter data updated")
                                 hideShimmerEffect()
                             }
                             else{
+                                database[0].foodRecipe.results.forEach{ foodrecipe ->
+                                    foodrecipe.IdBookmark = 0
+                                    foodrecipe.inBookmark = false}
                                 mAdapter.setData(database[0].foodRecipe)
+                                Log.d("RecipesFragment", "Adapter data updated 2:")
+                                Log.d("RecipesFragment", database[0].foodRecipe.results.toString())
                                 hideShimmerEffect()
                             }
                         }

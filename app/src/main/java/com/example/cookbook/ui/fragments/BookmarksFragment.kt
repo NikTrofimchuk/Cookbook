@@ -54,8 +54,10 @@ class BookmarksFragment : Fragment() {
     private fun loadDataFromCache() {
         lifecycleScope.launch {
             mainViewModel.readBookmarks.observe(viewLifecycleOwner) { database ->
-                if (database.isNotEmpty()) {mAdapter.setDataBookmarks(database)}
-                Log.v("myrecipe",database.toString())
+                database.forEach(){bookmarks ->
+                    bookmarks.result.IdBookmark = bookmarks.id
+                }
+                mAdapter.setDataBookmarks(database)
                 hideShimmerEffect()
             }
         }
