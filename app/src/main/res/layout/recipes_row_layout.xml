@@ -90,6 +90,21 @@
                     app:srcCompat="@drawable/ic_heart"
                     app:tint="@color/red" />
 
+                <ImageView
+                    android:id="@+id/bookmark_added"
+                    checkBookmarks="@{result.inBookmark}"
+                    android:layout_width="53dp"
+                    android:layout_height="71dp"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/recipe_imageView"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/bookmark_added_24"
+                    app:tint="@color/colorPrimary" />
+
                 <TextView
                     android:id="@+id/heart_textView"
                     setNumberOfLikes="@{result.aggregateLikes}"
@@ -145,26 +160,6 @@
                     app:layout_constraintStart_toEndOf="@+id/clock_textView"
                     app:layout_constraintTop_toBottomOf="@+id/leaf_imageView" />
 
-                <TextView
-                    checkBookmarks="@{result.inBookmark}"
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginBottom="2dp"
-                    android:background="@color/actionBarBackgroundColor"
-                    android:text="@string/bookmarks_TV"
-                    android:textColor="@color/chipBackgroundColor"
-                    android:textColorHint="@color/cardBackgroundColor"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:visibility="invisible"
-                    app:layout_constraintBottom_toBottomOf="@+id/recipe_imageView"
-                    app:layout_constraintEnd_toEndOf="@+id/recipe_imageView"
-                    app:layout_constraintHorizontal_bias="0.112"
-                    app:layout_constraintStart_toStartOf="@+id/recipe_imageView"
-                    app:layout_constraintTop_toTopOf="@+id/recipe_imageView"
-                    app:layout_constraintVertical_bias="0.943" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

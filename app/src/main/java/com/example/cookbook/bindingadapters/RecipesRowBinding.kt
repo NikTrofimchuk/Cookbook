@@ -58,9 +58,9 @@ class RecipesRowBinding {
 
         @BindingAdapter("checkBookmarks")
         @JvmStatic
-        fun checkBookmarks(textView: TextView, inBookmark: Boolean) {
+        fun checkBookmarks(imageView: ImageView, inBookmark: Boolean) {
             if (inBookmark)
-            textView.visibility = View.VISIBLE
+            imageView.visibility = View.VISIBLE
         }
 
         @BindingAdapter("setNumberOfMinutes")
