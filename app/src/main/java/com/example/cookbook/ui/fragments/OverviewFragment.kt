@@ -36,7 +36,8 @@ class OverviewFragment : Fragment() {
             view.summary_textView.text = summary
             val calSummary = summary.substringBefore("calories").substringBeforeLast(" ")
             val calories: String = calSummary.substring(calSummary.lastIndexOf(" ") + 1)
-            Log.i(TAG, calories)
+
+            view.calories_textview.text = calories
         }
 
 
