@@ -1,5 +1,6 @@
 package com.example.cookbook.bindingadapters
 
+import android.annotation.SuppressLint
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
