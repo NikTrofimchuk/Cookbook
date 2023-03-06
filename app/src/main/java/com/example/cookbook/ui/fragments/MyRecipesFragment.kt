@@ -60,7 +60,7 @@ class MyRecipesFragment : Fragment() {
     private fun loadDataFromCache() {
         lifecycleScope.launch {
             myRecipesViewModel.readMyRecipes.observe(viewLifecycleOwner) { database ->
-                if (database.isNotEmpty()) {mAdapter.setData(database)}
+                mAdapter.setData(database)
                 Log.v("myrecipe",database.toString())
             }
         }
