@@ -77,5 +77,10 @@
             android:id="@+id/action_navigation_bookmarks_to_detailsActivity"
             app:destination="@id/detailsActivity" />
     </fragment>
+    <fragment
+        android:id="@+id/navigation_basket"
+        android:name="com.example.cookbook.ui.fragments.BasketFragment"
+        android:label="@string/title_basket"
+        tools:layout="@layout/fragment_basket" />
 
 </navigation>

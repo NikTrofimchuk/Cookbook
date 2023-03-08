@@ -105,6 +105,9 @@ class DetailsActivity : AppCompatActivity() {
                         setMenuCheckedButton(item)
                     }
                 }
+                R.id.menu_addinbasket ->{
+                    Toast.makeText(applicationContext,R.string.add_basket, Toast.LENGTH_SHORT).show()
+                }
             }
         }
         return super.onOptionsItemSelected(item)
