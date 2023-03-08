@@ -76,12 +76,23 @@
                     app:layout_constraintTop_toBottomOf="@+id/title_textView" />
 
                 <ImageView
-                    android:id="@+id/clock_imageView"
+                    android:id="@+id/calories_imageView2"
+                    checkCalories="@{recipe.calories}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintEnd_toEndOf="@+id/clock_textView2"
+                    app:layout_constraintStart_toStartOf="@+id/clock_textView2"
+                    app:layout_constraintTop_toBottomOf="@+id/description_textView"
+                    app:srcCompat="@drawable/ic_calories"
+                    app:tint="@color/yellow" />
+
+                <ImageView
+                    android:id="@+id/clock_imageView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     app:layout_constraintEnd_toEndOf="@+id/clock_textView"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/clock_textView"
                     app:layout_constraintTop_toBottomOf="@+id/description_textView"
                     app:srcCompat="@drawable/ic_clock"
@@ -92,14 +103,29 @@
                     setTime="@{recipe.time}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:text="100"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginBottom="4dp"
+                    android:text="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/yellow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/description_textView"
+                    app:layout_constraintTop_toBottomOf="@+id/clock_imageView3"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/clock_textView2"
+                    setCalories="@{recipe.calories}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:text="1"
                     android:textAlignment="inherit"
                     android:textColor="@color/yellow"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/description_textView"
-                    app:layout_constraintStart_toStartOf="@+id/description_textView"
-                    app:layout_constraintTop_toBottomOf="@+id/clock_imageView" />
+                    app:layout_constraintStart_toEndOf="@+id/clock_textView"
+                    app:layout_constraintTop_toBottomOf="@+id/calories_imageView2"
+                    app:layout_constraintVertical_bias="0.0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

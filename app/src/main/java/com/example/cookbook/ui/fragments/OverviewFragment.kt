@@ -16,7 +16,6 @@ import org.jsoup.Jsoup
 
 
 class OverviewFragment : Fragment() {
-    private val TAG = "MyApp"
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,7 +35,6 @@ class OverviewFragment : Fragment() {
             view.summary_textView.text = summary
             val calSummary = summary.substringBefore("calories").substringBeforeLast(" ")
             val calories: String = calSummary.substring(calSummary.lastIndexOf(" ") + 1)
-
             view.calories_textview.text = calories
         }
 

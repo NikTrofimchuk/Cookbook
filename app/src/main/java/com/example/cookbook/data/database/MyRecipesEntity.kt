@@ -24,6 +24,9 @@ class MyRecipesEntity(
 
     @ColumnInfo(name = "image")
     var image: String,
+
+    @ColumnInfo(name = "calories")
+    var calories: String,
 ): Parcelable
 {
     @PrimaryKey(autoGenerate = true)

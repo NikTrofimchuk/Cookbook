@@ -1,6 +1,5 @@
 package com.example.cookbook.bindingadapters
 
-import android.annotation.SuppressLint
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
@@ -62,6 +61,7 @@ class RecipesRowBinding {
         fun checkBookmarks(imageView: ImageView, inBookmark: Boolean) {
             if (inBookmark)
             imageView.visibility = View.VISIBLE
+            else imageView.visibility = View.GONE
         }
 
         @BindingAdapter("setNumberOfMinutes")

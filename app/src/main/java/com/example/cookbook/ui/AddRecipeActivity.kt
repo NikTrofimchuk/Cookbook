@@ -102,7 +102,8 @@ class AddRecipeActivity : AppCompatActivity() {
                 time = time_ed.text.toString(),
                 description = description_ed.text.toString(),
                 instruction = instruction_ed.text.toString(),
-                image = myImageUrl)
+                image = myImageUrl,
+                calories = calories_ed.text.toString())
             myRecipesViewModel.writeInMyRecipes(myrecipe)
             finish()
         }

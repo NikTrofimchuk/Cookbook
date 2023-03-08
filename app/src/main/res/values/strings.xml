@@ -5,7 +5,6 @@
     <string name="title_home">Home</string>
     <string name="title_my_recipes">My recipes</string>
     <string name="title_bookmarks">Bookmarks</string>
-    <string name="title_basket">Basket</string>
     <string name="title_details">Details</string>
     <string name="title_add">New recipe</string>
     <string name="title_search_ingredients">Search ingredients</string>
@@ -67,5 +66,4 @@
     <string name="recipe_instructionTV">Instruction:</string>
     <string name="recipe_addImageBtn">Add Image</string>
     <string name="bookmarks_tv">This is where your recipes will be stored</string>
-    <!-- TODO: Remove or change this placeholder text -->
 </resources>

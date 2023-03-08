@@ -2,6 +2,7 @@ package com.example.cookbook.bindingadapters
 
 import android.net.Uri
 import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -47,6 +48,17 @@ class MyRecipesRowBinding {
             textView.text = time
         }
 
+        @BindingAdapter("checkCalories")
+        @JvmStatic
+        fun checkCalories(imageView: ImageView, calories: String) {
+            if (calories.isEmpty())
+                imageView.visibility = View.GONE
+        }
+        @BindingAdapter("setCalories")
+        @JvmStatic
+        fun setCalories(textView: TextView, calories: String) {
+            textView.text = calories
+        }
 
         @BindingAdapter("parse")
         @JvmStatic

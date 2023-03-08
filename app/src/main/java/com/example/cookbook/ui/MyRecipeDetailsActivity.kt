@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.lifecycle.ViewModelProvider
@@ -14,7 +16,10 @@ import com.example.cookbook.R
 import com.example.cookbook.data.database.MyRecipesEntity
 import com.example.cookbook.viewmodels.MyRecipesViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_add_recipe.*
 import kotlinx.android.synthetic.main.activity_my_recipe_details.*
+import kotlinx.android.synthetic.main.activity_my_recipe_details.view.*
+import kotlinx.android.synthetic.main.placeholder_row_layout.*
 
 @AndroidEntryPoint
 class MyRecipeDetailsActivity : AppCompatActivity() {
@@ -39,6 +44,9 @@ class MyRecipeDetailsActivity : AppCompatActivity() {
         description_text.text = myRecipe.description
         instruction_text.text = myRecipe.instruction
         title_textView.text = myRecipe.title
+        calories_textview.text = myRecipe.calories
+        if(myRecipe.calories.isEmpty())
+        calories_details.visibility = View.GONE
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

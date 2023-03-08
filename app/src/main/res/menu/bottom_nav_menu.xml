@@ -16,9 +16,4 @@
         android:icon="@drawable/ic_bookmarks"
         android:title="@string/title_bookmarks" />
 
-    <item
-        android:id="@+id/navigation_basket"
-        android:icon="@drawable/ic_baseline_shopping_basket_24"
-        android:title="@string/title_basket" />
-
 </menu>

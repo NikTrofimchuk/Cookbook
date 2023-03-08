@@ -119,7 +119,7 @@
         android:id="@+id/time_ed"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="44dp"
         android:backgroundTint="@color/black"
         android:ems="10"
         android:gravity="start"
@@ -127,8 +127,25 @@
         android:maxLength="3"
         android:textColor="@color/yellow"
         app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/calories_ed"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/black"
+        android:ems="10"
+        android:gravity="start"
+        android:inputType="number"
+        android:maxLength="3"
+        android:textColor="@color/yellow"
+        app:layout_constraintEnd_toEndOf="@+id/time_ed"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/time_ed"
+        app:layout_constraintTop_toBottomOf="@+id/time_ed" />
 
     <ImageView
         android:id="@+id/recipeImage"
@@ -150,5 +167,27 @@
         app:layout_constraintTop_toTopOf="@+id/time_ed"
         app:layout_constraintVertical_bias="0.476"
         app:srcCompat="@drawable/ic_clock" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/time_ed"
+        app:layout_constraintEnd_toStartOf="@+id/time_ed"
+        app:layout_constraintTop_toTopOf="@+id/time_ed"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_clock" />
+
+    <ImageView
+        android:id="@+id/imcalories"
+        android:layout_width="23dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/calories_ed"
+        app:layout_constraintEnd_toStartOf="@+id/calories_ed"
+        app:layout_constraintTop_toTopOf="@+id/calories_ed"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_dark_calories" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -74,7 +74,6 @@ class DetailsActivity : AppCompatActivity() {
         )
         viewPager.adapter = adapter
         tabLayout.setupWithViewPager(viewPager)
-        Log.d("RecipesFragment", args.result.toString())
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -91,6 +90,7 @@ class DetailsActivity : AppCompatActivity() {
                         if(bookmarkID == 0)mainViewModel.deleteBookmark(args.result.IdBookmark)
                         else mainViewModel.deleteBookmark(bookmarkID)
 
+                        Log.d("RecipesFragment", args.result.IdBookmark.toString())
                         args.result.inBookmark = false
                     }
                     else
@@ -101,6 +101,7 @@ class DetailsActivity : AppCompatActivity() {
 
                         val bookmarkEntity = BookmarkEntity(args.result)
                         bookmarkID = mainViewModel.writeInBookmarks(bookmarkEntity).toInt()
+                        Log.d("RecipesFragment", bookmarkID.toString())
                         setMenuCheckedButton(item)
                     }
                 }
