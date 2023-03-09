@@ -107,7 +107,11 @@ class DetailsActivity : AppCompatActivity() {
                     }
                 }
                 R.id.menu_addinbasket ->{
-                    val basketEntity: BasketEntity
+                    val basketEntity = BasketEntity(
+                        args.result.title,
+                        args.result.extendedIngredients
+                    )
+                    mainViewModel.writeInBasket(basketEntity)
                     Toast.makeText(applicationContext,R.string.add_basket, Toast.LENGTH_SHORT).show()
                 }
             }
