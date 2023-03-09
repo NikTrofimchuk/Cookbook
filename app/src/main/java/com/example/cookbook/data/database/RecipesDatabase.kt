@@ -5,8 +5,8 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
 @Database(
-    entities = [RecipesEntity::class, MyRecipesEntity::class, BookmarkEntity::class],
-    version = 3,
+    entities = [RecipesEntity::class, MyRecipesEntity::class, BookmarkEntity::class, BasketEntity::class],
+    version = 2,
     exportSchema = false
 )
 @TypeConverters(RecipesTypeConverter::class, BookmarksTypeConverter::class)

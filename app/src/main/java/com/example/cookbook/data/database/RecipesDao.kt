@@ -33,4 +33,10 @@ interface RecipesDao {
 
     @Query("DELETE FROM bookmarks_table WHERE id = :id")
     suspend fun deleteBookmark(id: Int)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertBasket(basketEntity: BasketEntity)
+
+    @Query("SELECT * FROM basket_table ORDER BY id ASC")
+    fun readBasket(): Flow<List<BasketEntity>>
 }

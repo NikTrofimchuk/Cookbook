@@ -24,6 +24,7 @@ class Constants {
         const val RECIPES_TABLE = "recipes_table"
         const val MYRECIPES_TABLE = "myrecipes_table"
         const val BOOKMARKS_TABLE = "bookmarks_table"
+        const val BASKET_TABLE = "basket_table"
 
         // Bottom Sheet and Preferences
         const val DEFAULT_RECIPES_NUMBER = "50"

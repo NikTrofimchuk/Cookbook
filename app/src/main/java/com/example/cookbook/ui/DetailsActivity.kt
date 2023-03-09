@@ -13,6 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.navArgs
 import com.example.cookbook.R
 import com.example.cookbook.adapters.PagerAdapter
+import com.example.cookbook.data.database.BasketEntity
 import com.example.cookbook.data.database.BookmarkEntity
 import com.example.cookbook.ui.fragments.IngredientsFragment
 import com.example.cookbook.ui.fragments.InstructionsFragment
@@ -106,6 +107,7 @@ class DetailsActivity : AppCompatActivity() {
                     }
                 }
                 R.id.menu_addinbasket ->{
+                    val basketEntity: BasketEntity
                     Toast.makeText(applicationContext,R.string.add_basket, Toast.LENGTH_SHORT).show()
                 }
             }

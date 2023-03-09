@@ -8,15 +8,13 @@ import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.example.cookbook.data.Repository
+import com.example.cookbook.data.database.BasketEntity
 import com.example.cookbook.data.database.BookmarkEntity
 import com.example.cookbook.data.database.RecipesEntity
 import com.example.cookbook.models.FoodRecipe
 import com.example.cookbook.util.NetworkResult
 import com.example.cookbook.util.observeOnce
-import kotlinx.coroutines.Deferred
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import retrofit2.Response
 import java.lang.Exception
 
@@ -34,6 +32,11 @@ class MainViewModel @ViewModelInject constructor(
     private fun insertRecipes(recipesEntity: RecipesEntity) =
         viewModelScope.launch(Dispatchers.IO) {
             repository.local.insertRecipes(recipesEntity)
+        }
+
+    private fun insertBasket(basketEntity: BasketEntity) =
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.insertBasket(basketEntity)
         }
 
     private suspend fun insertBookmarks(bookmarkEntity: BookmarkEntity): Long
@@ -101,6 +104,10 @@ class MainViewModel @ViewModelInject constructor(
 
     suspend fun writeInBookmarks(bookmarkEntity: BookmarkEntity): Long {
         return insertBookmarks(bookmarkEntity)
+    }
+
+    suspend fun writeInBasket(basketEntity: BasketEntity): Job {
+        return insertBasket(basketEntity)
     }
 
     fun deleteBookmark(id: Int){

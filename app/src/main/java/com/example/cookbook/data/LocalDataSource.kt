@@ -1,9 +1,6 @@
 package com.example.cookbook.data
 
-import com.example.cookbook.data.database.BookmarkEntity
-import com.example.cookbook.data.database.MyRecipesEntity
-import com.example.cookbook.data.database.RecipesDao
-import com.example.cookbook.data.database.RecipesEntity
+import com.example.cookbook.data.database.*
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -41,5 +38,13 @@ class LocalDataSource @Inject constructor(
 
     suspend fun deleteFromBookmark(id: Int){
         recipesDao.deleteBookmark(id)
+    }
+
+    suspend fun insertBasket(basketEntity: BasketEntity){
+        recipesDao.insertBasket(basketEntity)
+    }
+
+    suspend fun readBasket() : Flow<List<BasketEntity>> {
+        return recipesDao.readBasket()
     }
 }
