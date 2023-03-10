@@ -128,11 +128,9 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
         lifecycleScope.launch {
             mainViewModel.readRecipes.observeOnce(viewLifecycleOwner) { database ->
                 if (database.isNotEmpty() && !args.backFromBottomSheet) {
-                    Log.d("RecipesFragment", "Recipes Database called!")
                     var bookmarks : List<BookmarkEntity>
                         mainViewModel.readBookmarks.observe(viewLifecycleOwner) { database1 ->
                             if (database1.isNotEmpty()) {
-                                Log.d("RecipesFragment", "Bookmarks Database called!")
                                 bookmarks = database1.toList()
                                 val foodRecipe = database[0].foodRecipe
                                 foodRecipe.results.forEach{ foodrecipe ->

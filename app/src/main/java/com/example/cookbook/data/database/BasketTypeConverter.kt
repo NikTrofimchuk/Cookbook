@@ -17,7 +17,7 @@ class BasketTypeConverter {
 
     @TypeConverter
     fun stringToIngredients(data: String): List<ExtendedIngredient> {
-        val listType = object : TypeToken<ExtendedIngredient>() {}.type
+        val listType = object : TypeToken<List<ExtendedIngredient>>() {}.type
         return gson.fromJson(data, listType)
     }
 }

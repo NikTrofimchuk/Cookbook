@@ -34,11 +34,6 @@ class MainViewModel @ViewModelInject constructor(
             repository.local.insertRecipes(recipesEntity)
         }
 
-    private fun insertBasket(basketEntity: BasketEntity) =
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.local.insertBasket(basketEntity)
-        }
-
     private suspend fun insertBookmarks(bookmarkEntity: BookmarkEntity): Long
     {
         val message: Deferred<Long> = viewModelScope.async(Dispatchers.IO) {
@@ -104,10 +99,6 @@ class MainViewModel @ViewModelInject constructor(
 
     suspend fun writeInBookmarks(bookmarkEntity: BookmarkEntity): Long {
         return insertBookmarks(bookmarkEntity)
-    }
-
-    suspend fun writeInBasket(basketEntity: BasketEntity): Job {
-        return insertBasket(basketEntity)
     }
 
     fun deleteBookmark(id: Int){

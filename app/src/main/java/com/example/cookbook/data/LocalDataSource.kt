@@ -44,7 +44,7 @@ class LocalDataSource @Inject constructor(
         recipesDao.insertBasket(basketEntity)
     }
 
-    suspend fun readBasket() : Flow<List<BasketEntity>> {
+    fun readBasket() : Flow<List<BasketEntity>> {
         return recipesDao.readBasket()
     }
 }

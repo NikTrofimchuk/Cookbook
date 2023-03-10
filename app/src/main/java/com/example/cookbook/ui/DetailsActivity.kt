@@ -19,6 +19,7 @@ import com.example.cookbook.ui.fragments.IngredientsFragment
 import com.example.cookbook.ui.fragments.InstructionsFragment
 import com.example.cookbook.ui.fragments.OverviewFragment
 import com.example.cookbook.util.Constants.Companion.RECIPE_RESULT_KEY
+import com.example.cookbook.viewmodels.BasketViewModel
 import com.example.cookbook.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_details.*
@@ -31,6 +32,7 @@ class DetailsActivity : AppCompatActivity() {
 
     private var bookmarkID = 0
     private lateinit var mainViewModel: MainViewModel
+    private lateinit var basketViewModel: BasketViewModel
 
     lateinit var item : MenuItem
 
@@ -53,6 +55,7 @@ class DetailsActivity : AppCompatActivity() {
         toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.white))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        basketViewModel = ViewModelProvider(this).get(BasketViewModel::class.java)
 //
         val fragments = ArrayList<Fragment>()
         fragments.add(OverviewFragment())
@@ -111,7 +114,7 @@ class DetailsActivity : AppCompatActivity() {
                         args.result.title,
                         args.result.extendedIngredients
                     )
-                    mainViewModel.writeInBasket(basketEntity)
+                    basketViewModel.writeInBasket(basketEntity)
                     Toast.makeText(applicationContext,R.string.add_basket, Toast.LENGTH_SHORT).show()
                 }
             }
