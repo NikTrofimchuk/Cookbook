@@ -30,11 +30,21 @@ class BasketViewModel @ViewModelInject constructor(
         }
     }
 
+    private fun updateBasket(name:String, multiplier:Int){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.updateBasket(name, multiplier)
+        }
+    }
+
     fun writeInBasket(basketEntity: BasketEntity): Job {
         return insertBasket(basketEntity)
     }
 
     fun clearBasket(){
         deleteBasketTable()
+    }
+
+    fun updateMultiplier(name: String, multiplier: Int){
+        updateBasket(name, multiplier)
     }
 }

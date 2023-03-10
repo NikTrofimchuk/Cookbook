@@ -51,4 +51,8 @@ class LocalDataSource @Inject constructor(
     suspend fun deleteBasketTable(){
         recipesDao.deleteBasketTable()
     }
+
+    suspend fun updateBasket(name:String, multiplier : Int){
+        recipesDao.updateBasket(name, multiplier)
+    }
 }

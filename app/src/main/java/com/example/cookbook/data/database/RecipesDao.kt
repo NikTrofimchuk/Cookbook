@@ -55,6 +55,9 @@ interface RecipesDao {
     @Query("UPDATE basket_table SET multiplier = :multiplier WHERE recipesName = :name")
     fun update(multiplier: Int, name: String)
 
+    @Query("UPDATE basket_table SET multiplier = multiplier + (:multiplier) WHERE recipesName = :name")
+    fun updateBasket(name: String , multiplier: Int)
+
     @Query("SELECT * FROM basket_table WHERE recipesName = :name")
     fun getByName(name: String): BasketEntity?
 }
