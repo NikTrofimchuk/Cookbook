@@ -29,6 +29,7 @@ class BasketRecipesAdapter : RecyclerView.Adapter<BasketRecipesAdapter.BasketRec
     }
 
     fun setData(newData: List<BasketRecipe>) {
+        recipesList.clear()
         recipesList.addAll(newData)
         notifyDataSetChanged()
     }

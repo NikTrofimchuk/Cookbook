@@ -34,6 +34,7 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="24dp"
+                android:maxLines="2"
                 android:text="Name"
                 android:textColor="@color/titleColor"
                 android:textSize="20sp"
@@ -47,50 +48,48 @@
                 android:id="@+id/basket_recipe_multiplier"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="68dp"
+                android:layout_marginEnd="8dp"
                 android:text="TextView"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/plus_multiplier"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:clickable="true"
-                android:contentDescription="@string/add"
-                app:backgroundTint="@color/checkedChipTextColor"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/basket_recipe_multiplier"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_add" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButton2"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:clickable="true"
-                android:contentDescription="@string/add"
-                app:backgroundTint="@color/checkedChipTextColor"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/basket_recipe_multiplier"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.526"
-                app:srcCompat="@drawable/ic_baseline_remove_24" />
 
             <View
                 android:id="@+id/view9"
                 android:layout_width="1dp"
-                android:layout_height="60dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginBottom="12dp"
                 android:background="@color/dark"
                 android:foregroundTint="@color/dark"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/floatingActionButton2"
+                app:layout_constraintEnd_toStartOf="@+id/minus_multiplier"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/plus_multiplier"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/oval_btn"
+                android:text="+"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/minus_multiplier"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/oval_btn"
+                android:text="—"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/basket_recipe_multiplier"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,6 +16,7 @@ import com.example.cookbook.models.BasketRecipe
 import com.example.cookbook.models.ExtendedIngredient
 import com.example.cookbook.viewmodels.BasketViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_basket.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 
@@ -43,6 +44,14 @@ class BasketFragment : Fragment() {
         _binding = FragmentBasketBinding.inflate(inflater, container, false)
         setupRecyclerView()
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        clear_basket_btn.setOnClickListener{
+            Log.d("BasketFragment", "setOnClickListener")
+            basketViewModel.clearBasket()
+        }
     }
 
     override fun onResume() {
@@ -78,8 +87,11 @@ class BasketFragment : Fragment() {
         Log.d("BasketFragment", "Set adapter")
     }
 
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
     }
+
+
 }

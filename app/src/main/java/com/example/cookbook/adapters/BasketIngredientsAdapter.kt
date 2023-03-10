@@ -49,5 +49,4 @@ class BasketIngredientsAdapter : RecyclerView.Adapter<BasketIngredientsAdapter.B
         ingredientsList = newIngredients
         diffUtilResult.dispatchUpdatesTo(this)
     }
-
 }

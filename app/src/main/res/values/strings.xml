@@ -68,5 +68,6 @@
     <string name="recipe_instructionTV">Instruction:</string>
     <string name="recipe_addImageBtn">Add Image</string>
     <string name="bookmarks_tv">This is where your recipes will be stored</string>
+    <string name="clear_basket">Clear Basket</string>
 
 </resources>

@@ -52,6 +52,7 @@
     <string name="recipe_instructionTV">Инструкция:</string>
     <string name="add_ingredient">Добавить новый ингредиент</string>
     <string name="title_search_ingredients">Поиск ингредиентов</string>
+    <string name="clear_basket">Очистить корзину</string>
     <string name="add">Добавить</string>
     <string name="error">Для добавления заполните все поля</string>
     <string name="photo">Выберите фото</string>

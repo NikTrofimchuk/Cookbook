@@ -24,7 +24,17 @@ class BasketViewModel @ViewModelInject constructor(
             repository.local.insertBasket(basketEntity)
         }
 
+    private fun deleteBasketTable(){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.deleteBasketTable()
+        }
+    }
+
     fun writeInBasket(basketEntity: BasketEntity): Job {
         return insertBasket(basketEntity)
+    }
+
+    fun clearBasket(){
+        deleteBasketTable()
     }
 }

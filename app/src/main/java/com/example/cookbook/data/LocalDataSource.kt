@@ -47,4 +47,8 @@ class LocalDataSource @Inject constructor(
     fun readBasket() : Flow<List<BasketEntity>> {
         return recipesDao.readBasket()
     }
+
+    suspend fun deleteBasketTable(){
+        recipesDao.deleteBasketTable()
+    }
 }
