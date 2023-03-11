@@ -44,7 +44,6 @@ class BasketFragment : Fragment(), BasketRecipesAdapter.OnItemClickListener {
     ): View {
         _binding = FragmentBasketBinding.inflate(inflater, container, false)
         setupRecyclerView()
-        loadDataFromCache()
         return binding.root
     }
 
@@ -56,37 +55,6 @@ class BasketFragment : Fragment(), BasketRecipesAdapter.OnItemClickListener {
         }
     }
 
-    private fun loadDataFromCache() {
-        lifecycleScope.launch {
-            basketViewModel.readBasket.observe(viewLifecycleOwner) { database ->
-                val ingredients = mutableListOf<ExtendedIngredient>()
-                val recipes = mutableListOf<BasketRecipe>()
-                database.forEach { basketEntity ->
-                    Log.d("BasketFragment", basketEntity.toString())
-                    basketEntity.extendedIngredient.forEach { ingredient ->
-                        //Тут идет подсчет количества ингредиента по количеству блюд в корзине
-                        ingredient.amount = ingredient.amount * basketEntity.multiplier
-
-                        //Ишем повторяющиеся по названию ингредиенты в коллекции
-                        val existingIngredient = ingredients.find { it.name == ingredient.name }
-                        //Если не найден повторяющийся, то добавляем новый ингридиент в коллекцию
-                        if (existingIngredient == null) {
-                            ingredients.add(ingredient)
-                            //А иначе, то есть когда в коллекции имеется ингредиент с одинаковым названием, мы плюсуем его количество к
-                            // имеющемуся в коллекции ингредиенту
-                        } else {
-                            existingIngredient.amount += ingredient.amount
-                        }
-                    }
-                    val recipe = BasketRecipe(basketEntity.recipesName, basketEntity.multiplier)
-                    recipes.add(recipe)
-                }
-                basketIngredientsAdapter.setData(ingredients)
-                basketRecipesAdapter.setData(recipes)
-            }
-        }
-    }
-
     private fun setupRecyclerView() {
         binding.ingredientsRC.adapter = basketIngredientsAdapter
         binding.ingredientsRC.layoutManager = LinearLayoutManager(requireContext())
@@ -94,6 +62,13 @@ class BasketFragment : Fragment(), BasketRecipesAdapter.OnItemClickListener {
         binding.recipesRC.adapter = basketRecipesAdapter
         binding.recipesRC.layoutManager = LinearLayoutManager(requireContext())
         Log.d("BasketFragment", "Set adapter")
+
+        basketViewModel.ingredientsLiveData.observe(viewLifecycleOwner) { ingredients ->
+            basketIngredientsAdapter.setData(ingredients)
+        }
+        basketViewModel.recipesLiveData.observe(viewLifecycleOwner) { recipes ->
+            basketRecipesAdapter.setData(recipes)
+        }
     }
 
     override fun onDestroy() {
@@ -108,4 +83,12 @@ class BasketFragment : Fragment(), BasketRecipesAdapter.OnItemClickListener {
     override fun onPlusClick(position: Int, name: String) {
         basketViewModel.updateMultiplier(name,1)
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        // Остановка наблюдения за LiveData при уничтожении фрагмента
+        basketViewModel.ingredientsLiveData.removeObservers(viewLifecycleOwner)
+        basketViewModel.recipesLiveData.removeObservers(viewLifecycleOwner)
+    }
+
 }
